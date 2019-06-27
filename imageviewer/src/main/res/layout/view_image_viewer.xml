@@ -54,4 +54,21 @@
 
     </FrameLayout>
 
+    <FrameLayout
+        android:id="@+id/closeIconContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="29dp"
+        android:padding="10dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:src="@drawable/close_white_x"/>
+
+    </FrameLayout>
+
 </FrameLayout>
