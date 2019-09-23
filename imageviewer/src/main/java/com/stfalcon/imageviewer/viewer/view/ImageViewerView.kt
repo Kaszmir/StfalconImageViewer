@@ -110,7 +110,7 @@ internal class ImageViewerView<T> @JvmOverloads constructor(
 
     private var images: List<T> = listOf()
     private var imageLoader: ImageLoader<T>? = null
-    private lateinit var transitionImageAnimator: TransitionImageAnimator
+    private var transitionImageAnimator: TransitionImageAnimator? = null
 
     private var startPosition: Int = 0
         set(value) {
@@ -158,7 +158,7 @@ internal class ImageViewerView<T> @JvmOverloads constructor(
             return true
         }
 
-        if (transitionImageAnimator.isAnimating) {
+        if (transitionImageAnimator?.isAnimating == true) {
             return true
         }
 
@@ -234,7 +234,7 @@ internal class ImageViewerView<T> @JvmOverloads constructor(
     }
 
     private fun animateOpen() {
-        transitionImageAnimator.animateOpen(
+        transitionImageAnimator?.animateOpen(
                 containerPadding = containerPadding,
                 onTransitionStart = { duration ->
                     backgroundView.animateAlpha(0f, 1f, duration)
@@ -247,7 +247,7 @@ internal class ImageViewerView<T> @JvmOverloads constructor(
         prepareViewsForTransition()
         dismissContainer.applyMargin(0, 0, 0, 0)
 
-        transitionImageAnimator.animateClose(
+        transitionImageAnimator?.animateClose(
                 shouldDismissToBottom = shouldDismissToBottom,
                 onTransitionStart = { duration ->
                     backgroundView.animateAlpha(backgroundView.alpha, 0f, duration)
